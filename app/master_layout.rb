@@ -10,8 +10,8 @@ class MasterLayout < MK::Layout
 
     constraints :tableView do
       width.is(:superview)
-      # height.is(:superview)
       bottom.is(:superview)
+
     end
 
     constraints :special_header do
@@ -20,7 +20,15 @@ class MasterLayout < MK::Layout
   end
 
   def layout
-    add SpecialHeaderLayout.new.view, :special_header do
+    # add SpecialHeaderLayout.new.view, :special_header do
+    #   constraints do
+    #     origin [0, 0]
+    #     height 54
+    #   end
+    # end
+
+    add UIView, :special_header do
+      background_color :red.uicolor(0.95)
       constraints do
         origin [0, 0]
         height 54
@@ -32,7 +40,6 @@ class MasterLayout < MK::Layout
 
       constraints do
         x 0
-
         # y 0
         below(:special_header)
       end
